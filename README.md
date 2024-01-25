@@ -20,18 +20,10 @@ Nikolai Hecker, Niklas Kempynck, David Mauduit, Darina Abaffyovà, Ioannis Sarro
    conda create -n DeepBrain python=3.8
    conda activate DeepBrain
    ```
-   Install the packages listed in install.txt
-   
-   !!! IMPORTANT FOR CALCULATING CONTRIBUTION SCORES
-   Add the following code to
-   ```
-   $CONDA_PREFIX/lib/python3.8/site-packages/shap/explainers/deep_tf.py
-   ```
-   at line 280:
-   ```
-   elif output_rank_order.isnumeric():
-      model_output_ranks = np.argsort(-model_output_values)
-      model_output_ranks[0] = int(output_rank_order)
+   Run the installation script to install the required dependencies and allow for GPU usage + SHAP interpretations.
+   ```bash
+   chmod +x install.sh
+   install.sh
    ```
 
 4. Download the DeepBrain models
