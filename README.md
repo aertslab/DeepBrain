@@ -25,7 +25,7 @@ Nikolai Hecker, Niklas Kempynck, David Mauduit, Darina Abaffyovà, Ioannis Sarro
    !!! IMPORTANT FOR CALCULATING CONTRIBUTION SCORES
    Add the following code to
    ```
-   $CONDA_PREFIX/lib.python3.8/site-packages/shap/explainers/deep_tf.py
+   $CONDA_PREFIX/lib/python3.8/site-packages/shap/explainers/deep_tf.py
    ```
    at line 280:
    ```
