@@ -12,7 +12,7 @@ Nikolai Hecker, Niklas Kempynck, David Mauduit, Darina Abaffyovà, Ioannis Sarro
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/aertslab/DeepBrain/.git
+   git clone https://github.com/aertslab/DeepBrain.git
 
 2. Install libraries
    Create conda environment: 
@@ -23,14 +23,18 @@ Nikolai Hecker, Niklas Kempynck, David Mauduit, Darina Abaffyovà, Ioannis Sarro
    Install the packages listed in install.txt
    
    !!! IMPORTANT FOR CALCULATING CONTRIBUTION SCORES
-   Add the following code to $CONDA_PREFIX/lib.python3.8/site-packages/shap/explainers/deep_tf.py at line 280:
+   Add the following code to
+   ```
+   $CONDA_PREFIX/lib.python3.8/site-packages/shap/explainers/deep_tf.py
+   ```
+   at line 280:
    ```
    elif output_rank_order.isnumeric():
       model_output_ranks = np.argsort(-model_output_values)
       model_output_ranks[0] = int(output_rank_order)
    ```
 
-3. Download the DeepBrain models
+4. Download the DeepBrain models
    ``` bash
    cd DeepBrain/models
    wget -r -nH -np --cut-dirs=2 https://resources.aertslab.org/papers/DeepBrain/.models/
