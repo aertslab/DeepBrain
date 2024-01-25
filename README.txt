@@ -1,6 +1,11 @@
-The MPRA IVSM folder contains code for obtaining the IVSM for the FIRE enhancer from our MPRA experiment.
+## Installation
 
-DeepChickenBrain contains a full example of training and using one of our enhancer models.
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/aertslab/DeepBrain/.git
+
+
+DeepChickenBrain contains an example of using our enhancer models to score and understand any region in any genome for the cell types in our datasets.
 
 !!! IMPORTANT FOR CALCULATING CONTRIBUTION SCORES
     Add the following code to $CONDA_PREFIX/lib.python3.8/site-packages/shap/explainers/deep_tf.py at line 280:
