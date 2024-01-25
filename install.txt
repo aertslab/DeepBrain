@@ -1,5 +1,3 @@
-conda create -n DeepBrain python=3.8
-conda activate DeepBrain
 pip install tensorflow==2.4.1
 conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 mkdir -p $CONDA_PREFIX/etc/conda/activate.d
