@@ -23,13 +23,12 @@ Nikolai Hecker*, Niklas Kempynck*, David Mauduit, Darina Abaffyová, Ioannis Sar
    ```
    Run the installation script to install the required dependencies and allow for GPU usage + SHAP interpretations.
    ```bash
-   chmod +x install.sh
-   install.sh
+   conda env create -f environment.yml
    ```
 
 4. Download the DeepBrain models
    ``` bash
-   cd DeepBrain/models
+   cd DeepBrain
    wget -r -nH -np --cut-dirs=2 https://resources.aertslab.org/papers/DeepBrain/.models/
    ```
 

@@ -1,4 +1,4 @@
-name: DeepBrain3
+name: DeepBrain
 channels:
   - conda-forge
   - bioconda

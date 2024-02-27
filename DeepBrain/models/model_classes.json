@@ -1,0 +1,7 @@
+{
+    "DeepMouseBrain1": ["AST", "D1MSN", "D2MSN", "DG_GRC", "EXC_CA1", "EXC_CA3", "EXC_L2_3_IT", "EXC_L4_IT", "EXC_L5_IT", "EXC_L5_PT", "EXC_L6_CT", "EXC_L6_IT", "EXC_L6b", "EXC_NP", "EXC_RSP", "INH_LAMP5", "INH_PVALB", "INH_SST", "INH_VIP", "MGL", "OL", "OPC", "VASC"],
+    "DeepMouseBrain2": ["AST", "D1MSN", "D2MSN", "DG_GRC", "DG_NBL", "EXC_CA1", "EXC_CA3", "EXC_CLA", "EXC_L2_3_IT", "EXC_L4_IT", "EXC_L5_IT", "EXC_L5_PT", "EXC_L6_CT", "EXC_L6_IT", "EXC_L6b", "EXC_NP", "EXC_PIR", "INH_LAMP5", "INH_PVALB", "INH_SST", "INH_STR", "INH_VIP", "IOL", "MGL", "OL", "OPC", "RGL", "VASC"],
+    "DeepHumanCortex1": ["AST", "EXC_L2_3_IT", "EXC_L4_IT", "EXC_L5_IT", "EXC_L6_IT", "INH_LAMP5", "INH_PVALB", "INH_SST", "INH_VIP", "MGL", "OL", "OPC", "VASC"],
+    "DeepHumanCortex2": ["AST", "EXC_L2_3_IT", "EXC_L4_IT", "EXC_L5_IT", "EXC_L6_CT", "EXC_L6_IT", "EXC_L6b", "INH_LAMP5", "INH_PVALB", "INH_SST", "INH_VIP", "MGL", "OL", "OPC"],
+    "DeepChickenBrain": ["AST", "D1MSN", "D2MSN", "EXC_GLU-1", "EXC_GLU-2", "EXC_GLU-3", "EXC_GLU-4", "EXC_GLU-5", "EXC_GLU-6", "EXC_GLU-7", "EXC_GLU-8", "INH_LAMP5", "INH_PVALB", "INH_SST", "INH_STR", "INH_VIP", "IOL", "MGL", "OL", "OPC"]
+}
