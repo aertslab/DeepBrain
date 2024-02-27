@@ -5,7 +5,7 @@ import os
 import tensorflow as tf
 import shap
 
-def load_model(output_dir, name_hdf5):
+def load_model(output_dir,model_name):
     """
     Loads a trained model from the specified output directory.
 
@@ -16,10 +16,10 @@ def load_model(output_dir, name_hdf5):
     Returns:
         model (tf.keras.Model): The loaded model.
     """
-    model_json_file = open(os.path.join(output_dir, 'model.json'))
+    model_json_file = open(os.path.join(output_dir, model_name+'.json'))
     model_json = model_json_file.read()
     model = tf.keras.models.model_from_json(model_json)
-    model.load_weights(os.path.join(output_dir, name_hdf5))
+    model.load_weights(os.path.join(output_dir, model_name+'.hdf5'))
     return model
 
 def one_hot_encode_along_row_axis(sequence):
