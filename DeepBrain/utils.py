@@ -86,6 +86,7 @@ def plot_model_predictions(model, location, seq_onehot, model_classes):
         numpy.ndarray: The model predictions.
     """
 
+    location = location[0]+':'+str(location[1])+'-'+str(location[2])
     prediction = model.predict(seq_onehot)[0]
     plt.figure(figsize=(len(model_classes)*1.3,2))
     plt.ylim([0,1])
@@ -109,7 +110,7 @@ def reverse_complement_one_hot_sequence(sequence):
     reverse_complement = sequence[::-1, ::-1]
     return reverse_complement
 
-def plot_deepexplainer_givenax(explainer, fig, ntrack, track_no, seq_onehot, cell_type, class_names):
+def plot_deepexplainer_givenax(explainer, fig, ntrack, track_no, seq_onehot, cell_type, class_names, plot=True):
     """
     Plots the DeepExplainer weights for a given cell type on a given axis.
 
@@ -131,9 +132,12 @@ def plot_deepexplainer_givenax(explainer, fig, ntrack, track_no, seq_onehot, cel
                                                    output_rank_order=str(target_class),
                                                    ranked_outputs=1,
                                                    check_additivity=False)
-    _, ax1 = plot_weights(shap_values_[0][0]*seq_onehot,
-                          fig, ntrack, 1, track_no,
-                          title='Region explanation for ' + cell_type, subticks_frequency=20, ylab="DeepExplainer")
+    if plot:
+        _, ax1 = plot_weights(shap_values_[0][0]*seq_onehot,
+                            fig, ntrack, 1, track_no,
+                            title='Region explanation for ' + cell_type, subticks_frequency=20, ylab="DeepExplainer")
+    else:
+        ax1 = None
     shaps = shap_values_[0]*seq_onehot
     shaps = shaps[np.where(shaps!=0)]
     return ax1, shaps
