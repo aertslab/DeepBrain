@@ -128,7 +128,7 @@ def plot_deepexplainer_givenax(explainer, fig, ntrack, track_no, seq_onehot, cel
     numpy.ndarray: The array of SHAP values.
     """
     target_class = class_names.index(cell_type)
-    shap_values_, indexes_ = explainer.shap_values(seq_onehot,
+    shap_values_, indexes_ = shap_values(explainer.explainer, seq_onehot,
                                                    output_rank_order=str(target_class),
                                                    ranked_outputs=1,
                                                    check_additivity=False)
@@ -141,6 +141,96 @@ def plot_deepexplainer_givenax(explainer, fig, ntrack, track_no, seq_onehot, cel
     shaps = shap_values_[0]*seq_onehot
     shaps = shaps[np.where(shaps!=0)]
     return ax1, shaps
+
+
+# Adapted from https://github.com/shap/shap/blob/master/shap/explainers/_deep/deep_tf.py
+def shap_values(explainer, X, ranked_outputs=None, output_rank_order="max", check_additivity=True):
+        # check if we have multiple inputs
+        if not explainer.multi_input:
+            if type(X) == list and len(X) != 1:
+                assert False, "Expected a single tensor as model input!"
+            elif type(X) != list:
+                X = [X]
+        else:
+            assert type(X) == list, "Expected a list of model inputs!"
+        assert len(explainer.model_inputs) == len(X), "Number of model inputs (%d) does not match the number given (%d)!" % (len(explainer.model_inputs), len(X))
+
+        # rank and determine the model outputs that we will explain
+        if ranked_outputs is not None and explainer.multi_output:
+            if not tf.executing_eagerly():
+                model_output_values = explainer.run(explainer.model_output, explainer.model_inputs, X)
+            else:
+                model_output_values = explainer.model(X)
+
+            if output_rank_order == "max":
+                model_output_ranks = np.argsort(-model_output_values)
+            elif output_rank_order == "min":
+                model_output_ranks = np.argsort(model_output_values)
+            elif output_rank_order == "max_abs":
+                model_output_ranks = np.argsort(np.abs(model_output_values))
+            elif output_rank_order.isnumeric(): ### Added from the original version
+                model_output_ranks = np.argsort(-model_output_values)
+                model_output_ranks[0] = int(output_rank_order)
+            else:
+                assert False, "output_rank_order must be max, min, or max_abs!"
+            model_output_ranks = model_output_ranks[:,:ranked_outputs]
+        else:
+            model_output_ranks = np.tile(np.arange(len(explainer.phi_symbolics)), (X[0].shape[0], 1))
+
+        # compute the attributions
+        output_phis = []
+        for i in range(model_output_ranks.shape[1]):
+            phis = []
+            for k in range(len(X)):
+                phis.append(np.zeros(X[k].shape))
+            for j in range(X[0].shape[0]):
+                if (hasattr(explainer.data, '__call__')):
+                    bg_data = explainer.data([X[l][j] for l in range(len(X))])
+                    if type(bg_data) != list:
+                        bg_data = [bg_data]
+                else:
+                    bg_data = explainer.data
+
+                # tile the inputs to line up with the background data samples
+                tiled_X = [np.tile(X[l][j:j+1], (bg_data[l].shape[0],) + tuple([1 for k in range(len(X[l].shape)-1)])) for l in range(len(X))]
+
+                # we use the first sample for the current sample and the rest for the references
+                joint_input = [np.concatenate([tiled_X[l], bg_data[l]], 0) for l in range(len(X))]
+
+                # run attribution computation graph
+                feature_ind = model_output_ranks[j,i]
+                sample_phis = explainer.run(explainer.phi_symbolic(feature_ind), explainer.model_inputs, joint_input)
+
+                # assign the attributions to the right part of the output arrays
+                for l in range(len(X)):
+                    phis[l][j] = (sample_phis[l][bg_data[l].shape[0]:] * (X[l][j] - bg_data[l])).mean(0)
+
+            output_phis.append(phis[0] if not explainer.multi_input else phis)
+
+        # check that the SHAP values sum up to the model output
+        if check_additivity:
+            if not tf.executing_eagerly():
+                model_output = explainer.run(explainer.model_output, explainer.model_inputs, X)
+            else:
+                model_output = explainer.model(X)
+            for l in range(len(explainer.expected_value)):
+                if not explainer.multi_input:
+                    diffs = model_output[:, l] - explainer.expected_value[l] - output_phis[l].sum(axis=tuple(range(1, output_phis[l].ndim)))
+                else:
+                    diffs = model_output[:, l] - explainer.expected_value[l]
+                    for i in range(len(output_phis[l])):
+                        diffs -= output_phis[l][i].sum(axis=tuple(range(1, output_phis[l][i].ndim)))
+                assert np.abs(diffs).max() < 1e-2, "The SHAP explanations do not sum up to the model's output! This is either because of a " \
+                                                   "rounding error or because an operator in your computation graph was not fully supported. If " \
+                                                   "the sum difference of %f is significant compared the scale of your model outputs please post " \
+                                                   "as a github issue, with a reproducable example if possible so we can debug it." % np.abs(diffs).max()
+
+        if not explainer.multi_output:
+            return output_phis[0]
+        elif ranked_outputs is not None:
+            return output_phis, model_output_ranks
+        else:
+            return output_phis
 
 
 ## Plotting functions from DeepLIFT: https://github.com/kundajelab/deeplift/
