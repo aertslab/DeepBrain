@@ -2,14 +2,7 @@
 
 DeepBrain contains an example of using our enhancer models to score and understand any region in any genome for the cell types in our datasets.
 
-If the models or accompanying files are helpful for your research please cite the following publication:
-
-"Deep learning of enhancer codes highlights similarities between mammalian and avian telencephalon cell types"
-
-Nikolai Hecker*, Niklas Kempynck*, David Mauduit, Darina Abaffyová, Ioannis Sarropoulus, Carmen Bravo González-Blas, Sam Dieltiens, Roel Vandepoel, Valerie Christiaens, Elke Leysen, Suresh Poovathingal, Gert Hulselmans, Joris De Wit, Stein Aerts
-
-
-## Installation
+## Installation and usage
 
 ### 1. Clone the repo
    ```bash
@@ -36,3 +29,9 @@ Nikolai Hecker*, Niklas Kempynck*, David Mauduit, Darina Abaffyová, Ioannis Sar
 ### 4. Usage
    Run the notebook DeepBrain_example.ipynb for example usage for predicting on genomic regions, getting contribution scores and calculating correlation between cell types.
 
+## Citation
+If the models or accompanying files are helpful for your research please cite the following publication:
+
+"Deep learning of enhancer codes highlights similarities between mammalian and avian telencephalon cell types"
+
+Nikolai Hecker*, Niklas Kempynck*, David Mauduit, Darina Abaffyová, Ioannis Sarropoulus, Sam Dieltiens, Carmen Bravo González-Blas, Roel Vandepoel, Elke Leysen, Gert Hulselmans, Joris De Wit, Valerie Christiaens, Suresh Poovathingal, Stein Aerts
