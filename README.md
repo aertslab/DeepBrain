@@ -11,24 +11,28 @@ Nikolai Hecker*, Niklas Kempynck*, David Mauduit, Darina Abaffyová, Ioannis Sar
 
 ## Installation
 
-1. Clone the repo:
+### 1. Clone the repo
    ```bash
    git clone https://github.com/aertslab/DeepBrain.git
-
-2. Install libraries
-   Create conda environment: 
-   ```bash
-   conda create -n DeepBrain python=3.8
-   conda activate DeepBrain
    ```
-   Run the installation script to install the required dependencies and allow for GPU usage + SHAP interpretations.
+
+### 2. Install libraries
+   Create and activate conda environment: 
    ```bash
    conda env create -f environment.yml
+   conda activate DeepBrain
+   ```
+   If GPUs are not found after installation, a potential fix may be to link an installed libcusolver.so.11 to the correct path:
+   ```bash
+   #Define CUDA_INSTALL_PATH depending on where it is installed on the local machine
+   ln -s $CUDA_INSTALL_PATH/CUDA/11.3.1/lib64/libcusolver.so.11 $(python -c "import tensorflow.python as x; print(x.__path__[0])")/libcusolver.so.10
    ```
 
-4. Download the DeepBrain models
+### 3. Download the DeepBrain models
    ``` bash
    cd DeepBrain
    wget -r -nH -np --cut-dirs=2 https://resources.aertslab.org/papers/DeepBrain/.models/
    ```
+### 4. Usage
+   Run the notebook DeepBrain_example.ipynb for example usage for predicting on genomic regions, getting contribution scores and calculating correlation between cell types.
 
