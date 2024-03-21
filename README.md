@@ -24,7 +24,6 @@ DeepBrain contains an example of using our enhancer models to score and understa
 
 ### 3. Download the DeepBrain models
    ``` bash
-   cd DeepBrain
    wget -r -nH -np --cut-dirs=2 https://resources.aertslab.org/papers/DeepBrain/.models/
    ```
 ### 4. Usage
