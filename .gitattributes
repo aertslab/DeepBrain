@@ -1,0 +1,10 @@
+DeepBrain/models/DeepChickenBrain/DeepChickenBrain.hdf5 filter=lfs diff=lfs merge=lfs -text
+DeepBrain/models/DeepChickenBrain/DeepChickenBrain.json filter=lfs diff=lfs merge=lfs -text
+DeepBrain/models/DeepHumanCortex/DeepHumanCortex2.json filter=lfs diff=lfs merge=lfs -text
+DeepBrain/models/DeepHumanCortex/DeepHumanCortex1.hdf5 filter=lfs diff=lfs merge=lfs -text
+DeepBrain/models/DeepHumanCortex/DeepHumanCortex1.json filter=lfs diff=lfs merge=lfs -text
+DeepBrain/models/DeepHumanCortex/DeepHumanCortex2.hdf5 filter=lfs diff=lfs merge=lfs -text
+DeepBrain/models/DeepMouseBrain/DeepMouseBrain1.hdf5 filter=lfs diff=lfs merge=lfs -text
+DeepBrain/models/DeepMouseBrain/DeepMouseBrain1.json filter=lfs diff=lfs merge=lfs -text
+DeepBrain/models/DeepMouseBrain/DeepMouseBrain2.hdf5 filter=lfs diff=lfs merge=lfs -text
+DeepBrain/models/DeepMouseBrain/DeepMouseBrain2.json filter=lfs diff=lfs merge=lfs -text
