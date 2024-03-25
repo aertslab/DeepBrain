@@ -22,7 +22,11 @@ DeepBrain contains an example of using our enhancer models to score and understa
    ```
 
 ### 3. Download the DeepBrain models
-   The weights of the models are stored using Git Large File Storage (LFS). To download them, you will need to have installed Git LFS (https://git-lfs.com/). Then the following commands are required after installation:
+   The weights of the models are stored using Git Large File Storage (LFS). To download them, you will need to have installed Git LFS (https://git-lfs.com/). On Linux, you can install Git LFS with the following command if it was not installed yet:
+   ```bash
+   sudo apt-get install git-lfs 
+   ```
+   Then the following commands are required after installation to retrieve the model weights:
    ``` bash
    git lfs install
    git lfs pull
