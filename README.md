@@ -7,7 +7,6 @@ DeepBrain contains an example of using our enhancer models to score and understa
 ### 1. Clone the repo
    ```bash
    git clone https://github.com/aertslab/DeepBrain.git
-   cd DeepBrain
    ```
 
 ### 2. Install libraries
@@ -23,8 +22,10 @@ DeepBrain contains an example of using our enhancer models to score and understa
    ```
 
 ### 3. Download the DeepBrain models
+   The weights of the models are stored using Git Large File Storage (LFS). To download them, you will need to have installed Git LFS (https://git-lfs.com/). Then the following commands are required after installation:
    ``` bash
-   wget -r -nH -np --cut-dirs=2 https://resources.aertslab.org/papers/DeepBrain/.models/
+   git lfs install
+   git lfs pull
    ```
 ### 4. Usage
    Run the notebook DeepBrain_example.ipynb for example usage for predicting on genomic regions, getting contribution scores and calculating correlation between cell types.
