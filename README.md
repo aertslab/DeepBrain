@@ -37,6 +37,6 @@ DeepBrain contains an example of using our enhancer models to score and understa
 ## Citation
 If the models or accompanying files are helpful for your research please cite the following publication:
 
-"Deep learning of enhancer codes highlights similarities between mammalian and avian telencephalon cell types"
+"Enhancer-driven cell type comparison reveals similarities between the mammalian and avian telencephalon"
 
-Nikolai Hecker*, Niklas Kempynck*, David Mauduit, Darina Abaffyová, Ioannis Sarropoulus, Sam Dieltiens, Carmen Bravo González-Blas, Roel Vandepoel, Elke Leysen, Gert Hulselmans, Joris De Wit, Valerie Christiaens, Suresh Poovathingal, Stein Aerts
+Nikolai Hecker*, Niklas Kempynck*, David Mauduit, Darina Abaffyová, Roel Vandepoel, Sam Dieltiens, Ioannis Sarropoulus, Carmen Bravo González-Blas, Elke Leysen, Rani Moors, Gert Hulselmans, Lynette Lim, Joris De Wit, Valerie Christiaens, Suresh Poovathingal, Stein Aerts
