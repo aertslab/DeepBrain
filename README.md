@@ -15,7 +15,7 @@ DeepBrain contains an example of using our enhancer models to score and understa
    conda env create -f environment.yml
    conda activate DeepBrain
    ```
-   If GPUs are not found after installation, a potential fix may be to link an installed libcusolver.so.11 to the correct path:
+   If you are using a GPU (recommended), and it is not found after installation, a potential fix may be to link an installed libcusolver.so.11 to the correct path:
    ```bash
    #Define CUDA_INSTALL_PATH depending on where it is installed on the local machine
    ln -s $CUDA_INSTALL_PATH/CUDA/11.3.1/lib64/libcusolver.so.11 $(python -c "import tensorflow.python as x; print(x.__path__[0])")/libcusolver.so.10
@@ -32,7 +32,10 @@ DeepBrain contains an example of using our enhancer models to score and understa
    git lfs pull
    ```
 ### 4. Usage
-   Run the notebook DeepBrain_example.ipynb for example usage for predicting on genomic regions, getting contribution scores and calculating correlation between cell types.
+   Run the notebook DeepBrain_example.ipynb for example usage for predicting on genomic regions, getting contribution scores and calculating correlation between cell types. If you are running JupyterLab, you can make the environment visible by running:
+   ```bash
+   ipython kernel install --user --name DeepBrain --display-name "DeepBrain"
+   ```
 
 ## Citation
 If the models or accompanying files are helpful for your research please cite the following publication:
