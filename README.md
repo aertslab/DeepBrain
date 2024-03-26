@@ -35,6 +35,7 @@ DeepBrain contains an example of using our enhancer models to score and understa
    git lfs install
    git lfs pull
    ```
+   If Git LFS does not work, you can also download the model weights from Zenodo: https://zenodo.org/records/10868679
 ### 4. Usage
    Run the notebook DeepBrain_example.ipynb for example usage for predicting on genomic regions, getting contribution scores and calculating correlation between cell types. If you are running JupyterLab, you can make the environment visible by running:
    ```bash
