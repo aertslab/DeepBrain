@@ -15,6 +15,10 @@ DeepBrain contains an example of using our enhancer models to score and understa
    conda env create -f environment.yml
    conda activate DeepBrain
    ```
+   If the installation fails for some reason, another option is to run the steps in the following script for a manual installation of all packages and the environment:
+   ```bash
+   install.sh
+   ```
    If you are using a GPU (recommended), and it is not found after installation, a potential fix may be to link an installed libcusolver.so.11 to the correct path:
    ```bash
    #Define CUDA_INSTALL_PATH depending on where it is installed on the local machine
