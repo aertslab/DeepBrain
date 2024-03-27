@@ -45,6 +45,6 @@ DeepBrain contains an example of using our enhancer models to score and understa
 ## Citation
 If the models or accompanying files are helpful for your research please cite the following publication:
 
-"Enhancer-driven cell type comparison reveals similarities between the mammalian and avian telencephalon"
+"Enhancer-driven cell type comparison reveals similarities between the mammalian and bird pallium"
 
 Nikolai Hecker*, Niklas Kempynck*, David Mauduit, Darina Abaffyová, Roel Vandepoel, Sam Dieltiens, Ioannis Sarropoulus, Carmen Bravo González-Blas, Elke Leysen, Rani Moors, Gert Hulselmans, Lynette Lim, Joris De Wit, Valerie Christiaens, Suresh Poovathingal, Stein Aerts
