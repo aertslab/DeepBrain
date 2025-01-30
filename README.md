@@ -1,4 +1,5 @@
 # DeepBrain
+⚠️ **We recommend using our latest enhancer modeling software package, [CREsted](https://github.com/aertslab/CREsted), which provides well documented code for training and evaluating enhancer models. The models in this repository (DeepMouseBrain1&2, DeepHumanCortex1&2 and DeepChickenBrain1) and the CREsted models from the Hecker & Kempynck et al. paper (DeepMouseBrain3, DeepHumanBrain and DeepChickenBrain2) are [also available](https://crested.readthedocs.io/en/latest/models/index.html) in CREsted.** ⚠️
 
 DeepBrain contains an example of using our enhancer models to score and understand any region in any genome for the cell types in our datasets.
 
